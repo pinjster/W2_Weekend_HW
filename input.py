@@ -16,7 +16,7 @@ computer_score = 0
 def play_game():
     valid_choices = ["rock", "paper", "scissors"]
     while True:
-        user_choice = input("Enter you choice (rock/paper/scissors:  ").lower()
+        user_choice = input("Enter your choice: rock/paper/scissors:  ").lower()
         if user_choice in valid_choices:
             return user_choice
         else:
@@ -28,13 +28,16 @@ def random_choice():
     return computer_choice
     
 def determine_winner(user_ch, comp_ch):
-    if user_ch == comp_ch:
-        return 'tie'
+    global player_score , computer_score
+    print(f"You chose {user_ch}")
+    print(f"The computer chose {comp_ch['name']}")
+    if user_ch == comp_ch['name'].lower():
+        return 'Game Tied'
     
     elif (
-        (user_ch == 'rock' and comp_ch == 'scissors') or
-        (user_ch == 'paper' and comp_ch =='rock') or
-        (user_ch =='scissors' and comp_ch =='paper') 
+        (user_ch == 'rock' and comp_ch['name'] == 'Scissors') or
+        (user_ch == 'paper' and comp_ch['name'] =='Rock') or
+        (user_ch =='scissors' and comp_ch['name'] =='Paper') 
     ):
         player_score += 1
         return 'You Win!'
@@ -48,10 +51,11 @@ def still_playing():
         if user_input == 'y':
             break
         elif user_input == 'n':
-            print(player_score, computer_score)
+            print(f"Your score was: {player_score}-{computer_score}")
+            print("Thanks for playing!")
             quit()
         else:
-            print("Invalid input: ")
+            print("Invalid input. Please try again! ")
             continue
 
 
@@ -61,6 +65,7 @@ while True:
     user_choice = play_game()
     comp_choice = random_choice()
     outcome = determine_winner(user_choice, comp_choice)
-    print(user_choice, comp_choice, outcome)
+    print(outcome)
+    print(f"Score: {player_score}-{computer_score}")
     still_playing()
    
