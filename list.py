@@ -1,25 +1,37 @@
 # """
 # Pick from:
-# Rock,
-# Paper,
-# Scissors,
-# Lizard,
-# Spock
+# Rock, loses to Paper and Spock
+# Paper, loses to Scissors and Lizard
+# Scissors, loses to Rock and Spock
+# Lizard, Loses to Rock and Scissors
+# Spock, loses to Lizard and Paper
 # """
 
 
 
 paper = {
     'name' : "Paper",
-    'lose' : ["scissors"],
+    'rock' : "Paper covers Rock",
+    'spock' : "Paper disproves Spock",
 }
 rock = {
     'name' : "Rock",
-    'lose' : ["Paper"],
+    'scissors' : "Rock crushes Scissors",
+    'lizard' : "Rock crushes Lizard",
 }
 scissors = {
     'name' : "Scissors",
-    'lose' : ["Rock"],
+    'paper' : "Scissors cuts Paper",
+    'lizard' : "Scissors decapitates Lizard",
 }
-
-list_choices = [paper, rock, scissors]
+spock = {
+    'name' : "Spock",
+    'rock' : "Spock vaporizes Rock",
+    'scissors' : "Spock smashes Scissors",
+}
+lizard = {
+    'name' : "Lizard",
+    'spock' : "Lizard poisons Spock",
+    'paper' : "Lizard eats Paper",
+}
+list_choices = [paper, rock, scissors, spock, lizard]
